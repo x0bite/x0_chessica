@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "x0_chessica",
+  "version": "1.6.1",
+  "description": "Local Stockfish analysis, board arrows, and configurable autoplay for chess.com.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.chess.com/*", "https://chess.com/*"],
+      "js": ["bridge.js"],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.chess.com/*", "https://chess.com/*"],
+      "js": ["round-ui.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "panel.html",
+        "panel.js",
+        "style.css",
+        "vendor/*",
+        "variation.js"
+      ],
+      "matches": ["https://www.chess.com/*", "https://chess.com/*"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "minimum_chrome_version": "118",
+  "permissions": ["debugger", "storage"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "host_permissions": ["https://www.chess.com/*", "https://chess.com/*"]
+}

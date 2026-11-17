@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><link rel="stylesheet" href="style.css" /><title>
+    Move analysis
+  </title>
+  <header>
+    <span>♞ x0_chessica</span>
+    <div>
+      <button id="quick-stop" hidden>Stop</button>
+      <button id="min" title="Minimize">−</button>
+    </div>
+  </header>
+  <main>
+    <div id="status">Starting Stockfish …</div>
+    <div id="move">—</div>
+    <div id="detail">Waiting for a position</div>
+    <div id="score"></div>
+    <label
+      >Thinking time
+      <select id="time">
+        <option value="700">0.7 seconds</option>
+        <option value="1500" selected>1.5 seconds</option>
+        <option value="3000">3 seconds</option>
+      </select></label
+    >
+    <section id="autoplay-controls">
+      <label
+        >Play as
+        <select id="side">
+          <option value="auto" selected>Automatic</option>
+          <option value="w">White</option>
+          <option value="b">Black</option>
+        </select></label
+      >
+      <div id="detected-color"></div>
+      <label
+        ><input id="repeat" type="checkbox" checked /> Continue after the
+        game</label
+      ><label
+        ><input id="autostart" type="checkbox" checked /> Always on · start
+        automatically</label
+      >
+      <div class="time-badge">Next game: 5 + 0 · Blitz</div>
+      <details id="session-settings">
+        <summary>Session settings</summary>
+        <label
+          ><input id="only-wins" type="checkbox" checked /> Continue only after
+          a win</label
+        ><label
+          >Break
+          <select id="pause">
+            <option value="0">None</option>
+            <option value="2" selected>2 seconds</option>
+            <option value="5">5 seconds</option>
+            <option value="10">10 seconds</option>
+          </select></label
+        ><label
+          >Game limit
+          <select id="limit">
+            <option value="0">Unlimited</option>
+            <option value="1">1 game</option>
+            <option value="3">3 games</option>
+            <option value="5">5 games</option>
+            <option value="10">10 games</option>
+          </select></label
+        >
+      </details>
+      <div id="stats" role="status">0 games · 0 wins · 0 losses · 0 draws</div>
+      <button id="play">Start</button>
+      <span id="play-state" role="status">Off</span
+      ><small>Stop with Esc · Active tab only</small>
+    </section>
+    <label
+      ><input id="variation" type="checkbox" checked /> Occasionally choose a
+      weaker alternative</label
+    ><label
+      ><input type="checkbox" id="auto" checked /> Read the board
+      automatically</label
+    >
+    <details>
+      <summary>Enter a FEN manually</summary>
+      <textarea
+        id="fen"
+        placeholder="Complete FEN …"
+        spellcheck="false"
+      ></textarea
+      ><button id="analyze">Analyze</button>
+    </details>
+    <p id="error"></p>
+    <small>Local Stockfish · Scores from White's perspective</small>
+  </main>
+  <script type="module" src="panel.js"></script>
+</html>
