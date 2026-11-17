@@ -1,6 +1,6 @@
 # x0_chessica
 
-A Manifest V3 extension for Chrome and Edge with local Stockfish analysis, move arrows, and configurable browser automation on chess.com. Version **1.0.0**
+A chess bot for chess.com.
 
 > Engine assistance in games against other people violates chess.com's fair-play rules and can lead to an account ban. Use this project for analysis and permitted training. Neither wins nor undetected use are guaranteed.
 
